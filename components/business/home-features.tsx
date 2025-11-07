@@ -2,14 +2,12 @@
 
 /* eslint-disable @next/next/no-img-element */
 import features from '@/data/features';
-import { useTranslations } from '@/lib/i18n';
 import { cn } from '@/lib/utils';
 import { CheckCircleIcon, QuoteIcon } from "lucide-react";
 import { useState } from 'react';
 
 export default function HomeFeatures() {
-  const { t, locale } = useTranslations('features');
-  const [activeTab, setActiveTab] = useState(0);
+    const [activeTab, setActiveTab] = useState(0);
 
   return (
     <section className="relative pt-20 pb-14 sm:pt-32 sm:pb-20 lg:pb-32">
@@ -17,10 +15,10 @@ export default function HomeFeatures() {
         {/* Title */}
         <div className="mx-auto mb-10 text-center lg:mb-14">
           <h2 className="text-3xl font-bold md:text-4xl tracking-wide md:leading-tight dark:text-white">
-            {t('High-performance')} <span className="text-blue-500">{t('enterprise-grade distributed file system')}</span>
+            {'超强性能的'} <span className="text-blue-500">{'企业级分布式文件系统'}</span>
           </h2>
           <p className="text-muted-foreground mt-4">
-            {t('Comprehensive features to meet enterprise-grade storage requirements')}
+            {'全面的功能特性，满足企业级存储需求'}
           </p>
         </div>
         {/* End Title */}
