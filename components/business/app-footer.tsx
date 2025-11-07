@@ -103,7 +103,7 @@ export default function AppFooter() {
                 </div>
                 <div className="flex items-center gap-2">
                   <span>{'北京地址：北京市海淀区西小口路 66 号中关村东升科技园北领地 C 区'}</span>
-                  {locale === 'zh' && (
+                  {true && (
                     <>
                       <span className="hidden md:inline-block">|</span>
                       <a

@@ -175,7 +175,7 @@ export default function DownloadPageClient() {
 
               {release && (
                 <span className="text-xs text-muted-foreground">
-                  {`${'发布于'} ${formatReleaseDate(release.published_at, locale === 'zh' ? 'zh-CN' : 'en-US')}`}
+                  {`${'发布于'} ${formatReleaseDate(release.published_at, 'zh-CN')}`}
                 </span>
               )}
 
