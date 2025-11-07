@@ -13,8 +13,7 @@ interface PlatformFactoryProps {
 }
 
 export default function PlatformFactory({ platform, className }: PlatformFactoryProps) {
-  const { t } = useTranslations('download');
-
+  
   switch (platform.id) {
     case 'linux':
       return <LinuxDownloadSection platform={platform} className={className} />;
