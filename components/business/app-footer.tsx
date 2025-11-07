@@ -11,47 +11,47 @@ export default function AppFooter() {
     {
       title: '架构支持',
       links: [
-        { title: '裸金属与虚拟化', href: docs_url('features/baremetal', locale) },
-        { title: '阿里云', href: docs_url('features/aliyun', locale) },
-        { title: '腾讯云', href: docs_url('features/qcloud', locale) },
-        { title: '华为云', href: docs_url('features/huaweicloud', locale) },
-        { title: '国际云服务商', href: docs_url('features/aws-elastic', locale) },
+        { title: '裸金属与虚拟化', href: docs_url('features/baremetal', 'zh') },
+        { title: '阿里云', href: docs_url('features/aliyun', 'zh') },
+        { title: '腾讯云', href: docs_url('features/qcloud', 'zh') },
+        { title: '华为云', href: docs_url('features/huaweicloud', 'zh') },
+        { title: '国际云服务商', href: docs_url('features/aws-elastic', 'zh') },
       ]
     },
     {
       title: '产品功能',
       links: [
-        { title: '分布式存储', href: docs_url('features/distributed', locale) },
-        { title: '日志管理', href: docs_url('features/logging', locale) },
-        { title: '版本控制', href: docs_url('features/versioning', locale) },
-        { title: 'S3 兼容', href: docs_url('features/s3-compatibility', locale) },
-        { title: '对象级只读', href: docs_url('features/worm', locale) },
-        { title: '跨区域复制', href: docs_url('features/replication', locale) },
-        { title: '加密', href: docs_url('features/encryption', locale) },
-        { title: '生命周期管理', href: docs_url('features/lifecycle', locale) },
+        { title: '分布式存储', href: docs_url('features/distributed', 'zh') },
+        { title: '日志管理', href: docs_url('features/logging', 'zh') },
+        { title: '版本控制', href: docs_url('features/versioning', 'zh') },
+        { title: 'S3 兼容', href: docs_url('features/s3-compatibility', 'zh') },
+        { title: '对象级只读', href: docs_url('features/worm', 'zh') },
+        { title: '跨区域复制', href: docs_url('features/replication', 'zh') },
+        { title: '加密', href: docs_url('features/encryption', 'zh') },
+        { title: '生命周期管理', href: docs_url('features/lifecycle', 'zh') },
       ]
     },
     {
       title: '解决方案',
       links: [
-        { title: '现代数据湖', href: docs_url('features/data-lake', locale) },
-        { title: 'AI 和机器学习', href: docs_url('features/ai', locale) },
-        { title: '云原生', href: docs_url('features/cloud-native', locale) },
-        { title: '大数据计算存储分离', href: docs_url('features/hdfs', locale) },
-        { title: 'SQL 支持', href: docs_url('features/sql-server', locale) },
-        { title: '量化交易', href: docs_url('features/quantitative-trading', locale) },
-        { title: '制造业降本', href: docs_url('features/industry', locale) },
-        { title: '冷归档存储', href: docs_url('features/cold-archiving', locale) },
-        { title: '视频存储方案', href: docs_url('features/video', locale) },
-        { title: '国产信创和 SM 解决方案', href: docs_url('features/domestic', locale) },
+        { title: '现代数据湖', href: docs_url('features/data-lake', 'zh') },
+        { title: 'AI 和机器学习', href: docs_url('features/ai', 'zh') },
+        { title: '云原生', href: docs_url('features/cloud-native', 'zh') },
+        { title: '大数据计算存储分离', href: docs_url('features/hdfs', 'zh') },
+        { title: 'SQL 支持', href: docs_url('features/sql-server', 'zh') },
+        { title: '量化交易', href: docs_url('features/quantitative-trading', 'zh') },
+        { title: '制造业降本', href: docs_url('features/industry', 'zh') },
+        { title: '冷归档存储', href: docs_url('features/cold-archiving', 'zh') },
+        { title: '视频存储方案', href: docs_url('features/video', 'zh') },
+        { title: '国产信创和 SM 解决方案', href: docs_url('features/domestic', 'zh') },
       ]
     },
     {
       title: '关于我们',
       links: [
-        { title: '关于我们', href: docs_url('about', locale) },
-        { title: '投资和合作', href: docs_url('about', locale) },
-        { title: '商标使用', href: docs_url('about', locale) },
+        { title: '关于我们', href: docs_url('about', 'zh') },
+        { title: '投资和合作', href: docs_url('about', 'zh') },
+        { title: '商标使用', href: docs_url('about', 'zh') },
       ]
     }
   ];

@@ -55,8 +55,8 @@ export default function PlatformInfo({ data, isSelected, onClick, className }: P
       </span>
       <span className="text-sm text-muted-foreground mt-1 text-center">
         {available
-          ? description[locale as 'zh' | 'en']
-          : comingSoon ? '即将推出' : t('not_supported')
+          ? description['zh' as 'zh' | 'en']
+          : comingSoon ? '即将推出' : '不支持此平台'
         }
       </span>
     </button>
