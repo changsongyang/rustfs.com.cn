@@ -22,7 +22,7 @@ export default function PlatformHeader({ platform, className }: PlatformHeaderPr
       </h2>
 
       <p className="text-muted-foreground max-w-2xl mx-auto">
-        {platform.description['zh']}
+        {platform.description}
       </p>
     </div>
   )

@@ -1,32 +1,32 @@
 'use client'
 
-import LanguageToggle from "@/components/ui/language-selector";
-import { docs_url } from "@/lib/utils";
-import { Popover, Transition } from '@headlessui/react';
-import Link from "next/link";
-import { Fragment } from 'react';
-import LinkGitHub from "./buttons/link-github";
-import LinkTwitter from "./buttons/link-twitter";
-import { Logo } from "./logo";
-import { ThemeToggle } from "./theme-toggle";
+import LanguageToggle from "@/components/ui/language-selector"
+import { docs_url } from "@/lib/utils"
+import { Popover, Transition } from '@headlessui/react'
+import Link from "next/link"
+import { Fragment } from 'react'
+import LinkGitHub from "./buttons/link-github"
+import LinkTwitter from "./buttons/link-twitter"
+import { Logo } from "./logo"
+import { ThemeToggle } from "./theme-toggle"
 
 export default function AppHeader() {
   const navs = [
     {
       label: '产品功能',
-      url: docs_url('features/distributed/', 'zh'),
+      url: docs_url('features/distributed/'),
     },
     {
       label: '架构',
-      url: docs_url('/concepts/architecture.html', 'zh'),
+      url: docs_url('/concepts/architecture.html'),
     },
     {
       label: '解决方案',
-      url: docs_url('features/data-lake/', 'zh'),
+      url: docs_url('features/data-lake/'),
     },
     {
       label: 'AI 支持',
-      url: docs_url('features/ai', 'zh')
+      url: docs_url('features/ai')
     },
     {
       label: '下载',
@@ -34,7 +34,7 @@ export default function AppHeader() {
     },
     {
       label: '文档',
-      url: docs_url('', 'zh')
+      url: docs_url('')
     },
     {
       label: '社区',
@@ -42,7 +42,7 @@ export default function AppHeader() {
     },
     {
       label: '关于我们',
-      url: docs_url('about', 'zh')
+      url: docs_url('about')
     }
   ]
 

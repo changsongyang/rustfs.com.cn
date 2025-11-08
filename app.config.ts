@@ -1,3 +1,17 @@
+// Site configuration
+export const SITE_CONFIG = {
+  primaryDomain: 'https://rustfs.com.cn',
+  secondaryDomain: 'https://rustfs.com',
+  docsDomain: 'https://docs.rustfs.com.cn',
+} as const
+
+// Site meta information
+export const SITE_METADATA = {
+  title: 'RustFS - 高性能分布式存储系统',
+  description: 'RustFS 用热门安全的 Rust 语言开发，兼容 S3 协议',
+  keywords: 'RustFS, 分布式存储, 云存储, S3兼容, 高性能, 开源, MinIO替代方案',
+} as const
+
 // Download link configuration
 export const DOWNLOAD_CONFIG = {
   GITHUB_REPO: 'rustfs/rustfs',

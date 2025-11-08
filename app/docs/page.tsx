@@ -4,8 +4,8 @@ import { useEffect } from 'react';
 
 export default function DocsPage() {
   useEffect(() => {
-    // 重定向到 docs.rustfs.com
-    window.location.href = 'https://docs.rustfs.com';
+    // 重定向到 RustFS 中文文档
+    window.location.href = 'https://docs.rustfs.com/zh/';
   }, []);
 
   // 显示加载状态
@@ -13,7 +13,7 @@ export default function DocsPage() {
     <div className="flex items-center justify-center min-h-screen">
       <div className="text-center">
         <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-4"></div>
-        <p className="text-muted-foreground">Redirecting to documentation...</p>
+        <p className="text-muted-foreground">正在跳转至 RustFS 文档站点…</p>
       </div>
     </div>
   );

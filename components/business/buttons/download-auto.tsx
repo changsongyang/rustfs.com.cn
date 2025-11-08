@@ -77,7 +77,7 @@ export default function DownloadAuto({ className }: { className?: string }) {
       case 'linux': return 'Linux';
       case 'docker': return 'Docker';
       case 'fallback': return '其他平台';
-      default: return 'Unknown';
+      default: return '未知平台';
     }
   };
 

@@ -12,52 +12,37 @@ import PlatformFactory from './platforms/platform-factory';
 import { type PlatformInfoData } from './platforms/platform-info';
 
 export default function DownloadPageClient() {
-   // 使用 download 命名空间
-
-  // 平台配置 - 直接使用 useMemo，不依赖 t 函数
   const platforms = useMemo((): PlatformInfoData[] => [
     {
       id: "linux",
       name: 'Linux',
       icon: <LinuxIcon className="w-full h-full aspect-square" />,
-      description: {
-        zh: 'Ubuntu 18.04+、CentOS 7+ 和其他 Linux 发行版',
-        en: 'Ubuntu 18.04+、CentOS 7+ 和其他 Linux 发行版',
-      },
+      description: 'Ubuntu 18.04+、CentOS 7+ 和其他 Linux 发行版',
       available: true,
     },
     {
       id: "docker",
       name: 'Docker',
       icon: <DockerIcon className="w-full h-full aspect-square" />,
-      description: {
-        zh: 'Docker 20.10+ 容器化部署',
-        en: 'Docker 20.10+ 容器化部署',
-      },
+      description: 'Docker 20.10+ 容器化部署',
       available: true,
     },
     {
       id: "macos",
       name: 'macOS',
       icon: <AppleIcon className="w-full h-full aspect-square" />,
-      description: {
-        zh: 'macOS 10.15+ 原生二进制支持',
-        en: 'macOS 10.15+ 原生二进制支持',
-      },
+      description: 'macOS 10.15+ 原生二进制支持',
       available: true,
     },
     {
       id: "windows",
       name: 'Windows',
       icon: <WindowsIcon className="w-full h-full aspect-square" />,
-      description: {
-        zh: 'Windows 10/11 原生二进制支持',
-        en: 'Windows 10/11 原生二进制支持',
-      },
+      description: 'Windows 10/11 原生二进制支持',
       available: false,
       comingSoon: true,
     },
-  ], [t]);
+  ], []);
 
   const availablePlatforms = useMemo(() => platforms.filter((p: PlatformInfoData) => p.available), [platforms]);
 

@@ -6,52 +6,52 @@ import LinkTwitter from './buttons/link-twitter';
 import { Logo } from './logo';
 
 export default function AppFooter() {
-  
+
   const footerLinks = [
     {
       title: '架构支持',
       links: [
-        { title: '裸金属与虚拟化', href: docs_url('features/baremetal', 'zh') },
-        { title: '阿里云', href: docs_url('features/aliyun', 'zh') },
-        { title: '腾讯云', href: docs_url('features/qcloud', 'zh') },
-        { title: '华为云', href: docs_url('features/huaweicloud', 'zh') },
-        { title: '国际云服务商', href: docs_url('features/aws-elastic', 'zh') },
+        { title: '裸金属与虚拟化', href: docs_url('features/baremetal') },
+        { title: '阿里云', href: docs_url('features/aliyun') },
+        { title: '腾讯云', href: docs_url('features/qcloud') },
+        { title: '华为云', href: docs_url('features/huaweicloud') },
+        { title: '国际云服务商', href: docs_url('features/aws-elastic') },
       ]
     },
     {
       title: '产品功能',
       links: [
-        { title: '分布式存储', href: docs_url('features/distributed', 'zh') },
-        { title: '日志管理', href: docs_url('features/logging', 'zh') },
-        { title: '版本控制', href: docs_url('features/versioning', 'zh') },
-        { title: 'S3 兼容', href: docs_url('features/s3-compatibility', 'zh') },
-        { title: '对象级只读', href: docs_url('features/worm', 'zh') },
-        { title: '跨区域复制', href: docs_url('features/replication', 'zh') },
-        { title: '加密', href: docs_url('features/encryption', 'zh') },
-        { title: '生命周期管理', href: docs_url('features/lifecycle', 'zh') },
+        { title: '分布式存储', href: docs_url('features/distributed') },
+        { title: '日志管理', href: docs_url('features/logging') },
+        { title: '版本控制', href: docs_url('features/versioning') },
+        { title: 'S3 兼容', href: docs_url('features/s3-compatibility') },
+        { title: '对象级只读', href: docs_url('features/worm') },
+        { title: '跨区域复制', href: docs_url('features/replication') },
+        { title: '加密', href: docs_url('features/encryption') },
+        { title: '生命周期管理', href: docs_url('features/lifecycle') },
       ]
     },
     {
       title: '解决方案',
       links: [
-        { title: '现代数据湖', href: docs_url('features/data-lake', 'zh') },
-        { title: 'AI 和机器学习', href: docs_url('features/ai', 'zh') },
-        { title: '云原生', href: docs_url('features/cloud-native', 'zh') },
-        { title: '大数据计算存储分离', href: docs_url('features/hdfs', 'zh') },
-        { title: 'SQL 支持', href: docs_url('features/sql-server', 'zh') },
-        { title: '量化交易', href: docs_url('features/quantitative-trading', 'zh') },
-        { title: '制造业降本', href: docs_url('features/industry', 'zh') },
-        { title: '冷归档存储', href: docs_url('features/cold-archiving', 'zh') },
-        { title: '视频存储方案', href: docs_url('features/video', 'zh') },
-        { title: '国产信创和 SM 解决方案', href: docs_url('features/domestic', 'zh') },
+        { title: '现代数据湖', href: docs_url('features/data-lake') },
+        { title: 'AI 和机器学习', href: docs_url('features/ai') },
+        { title: '云原生', href: docs_url('features/cloud-native') },
+        { title: '大数据计算存储分离', href: docs_url('features/hdfs') },
+        { title: 'SQL 支持', href: docs_url('features/sql-server') },
+        { title: '量化交易', href: docs_url('features/quantitative-trading') },
+        { title: '制造业降本', href: docs_url('features/industry') },
+        { title: '冷归档存储', href: docs_url('features/cold-archiving') },
+        { title: '视频存储方案', href: docs_url('features/video') },
+        { title: '国产信创和 SM 解决方案', href: docs_url('features/domestic') },
       ]
     },
     {
       title: '关于我们',
       links: [
-        { title: '关于我们', href: docs_url('about', 'zh') },
-        { title: '投资和合作', href: docs_url('about', 'zh') },
-        { title: '商标使用', href: docs_url('about', 'zh') },
+        { title: '关于我们', href: docs_url('about') },
+        { title: '投资和合作', href: docs_url('about') },
+        { title: '商标使用', href: docs_url('about') },
       ]
     }
   ];
