@@ -36,6 +36,10 @@ export default function AppHeader() {
       url: docs_url('')
     },
     {
+      label: '博客',
+      url: `https://rustfs.dev/`
+    },
+    {
       label: '社区',
       url: 'https://github.com/rustfs/rustfs/discussions'
     },
