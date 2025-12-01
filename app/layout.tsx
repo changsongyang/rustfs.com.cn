@@ -7,6 +7,7 @@ import { SITE_CONFIG, SITE_METADATA } from '@/app.config';
 import AppFooter from '@/components/business/app-footer';
 import AppHeader from '@/components/business/app-header';
 import FixedContactButton from '@/components/business/buttons/fixed-contact-button';
+import BackgroundGrid from '@/components/ui/background-grid';
 import "./globals.css";
 
 const geistSans = Geist({
@@ -80,6 +81,7 @@ export default async function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex h-full flex-col`}
       >
         <ThemeProvider enableSystem attribute="class">
+          <BackgroundGrid />
           <AppHeader />
           {children}
           <AppFooter />
