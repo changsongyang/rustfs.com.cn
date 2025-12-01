@@ -1,6 +1,6 @@
 'use client'
 
-import { docs_url } from "@/lib/utils"
+import { cn, docs_url } from "@/lib/utils"
 import { Popover, Transition } from '@headlessui/react'
 import Link from "next/link"
 import { Fragment } from 'react'
@@ -14,43 +14,52 @@ export default function AppHeader() {
     {
       label: '产品功能',
       url: docs_url('features/distributed/'),
+      classes: '',
     },
     {
       label: '架构',
       url: docs_url('/concepts/architecture.html'),
+      classes: 'hidden xl:inline-block',
     },
     {
       label: '解决方案',
       url: docs_url('features/data-lake/'),
+      classes: 'hidden xl:inline-block',
     },
     {
       label: 'AI 支持',
-      url: docs_url('features/ai')
+      url: docs_url('features/ai'),
+      classes: 'hidden xl:inline-block',
     },
     {
       label: '下载',
-      url: `/download`
+      url: `/download`,
+      classes: '',
     },
     {
       label: '文档',
-      url: docs_url('')
+      url: docs_url(''),
+      classes: '',
     },
     {
       label: '博客',
-      url: `https://rustfs.dev/`
+      url: `https://rustfs.dev/`,
+      classes: '',
     },
     {
       label: '社区',
-      url: 'https://github.com/rustfs/rustfs/discussions'
+      url: 'https://github.com/rustfs/rustfs/discussions',
+      classes: 'hidden xl:inline-block',
     },
     {
       label: '关于我们',
-      url: docs_url('about')
-    }
+      url: docs_url('about'),
+      classes: 'hidden xl:inline-block',
+    },
   ]
 
   return (
-    <header className="py-10">
+    <header className="py-6 xl:py-8">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <nav className="relative z-50 flex justify-between">
           <div className="flex items-center md:gap-x-12">
@@ -58,9 +67,15 @@ export default function AppHeader() {
               <Logo className="h-5 w-auto" />
             </Link>
             <div className="hidden md:flex md:gap-x-6">
-              {navs.map((item, index) => {
-                return <a key={index} className="inline-block rounded-lg px-2 py-1 text-sm text-primary" href={item.url}>{item.label}</a>
-              })}
+              {navs.map((item, index) => (
+                <a
+                  key={index}
+                  className={cn("inline-block rounded-lg px-2 py-1 text-sm text-primary", item.classes)}
+                  href={item.url}
+                >
+                  {item.label}
+                </a>
+              ))}
             </div>
           </div>
           <div className="flex items-center gap-x-2 md:gap-x-5">
