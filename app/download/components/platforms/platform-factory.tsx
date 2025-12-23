@@ -10,10 +10,11 @@ import WindowsDownloadSection from "./windows-download-section";
 interface PlatformFactoryProps {
   platform: PlatformInfoData;
   release: GitHubRelease | null;
+  launcherRelease: GitHubRelease | null;
   className?: string;
 }
 
-export default function PlatformFactory({ platform, release, className }: PlatformFactoryProps) {
+export default function PlatformFactory({ platform, release, launcherRelease, className }: PlatformFactoryProps) {
 
   switch (platform.id) {
     case 'linux':
@@ -23,7 +24,7 @@ export default function PlatformFactory({ platform, release, className }: Platfo
     case 'macos':
       return <MacOSDownloadSection platform={platform} release={release} className={className} />;
     case 'windows':
-      return <WindowsDownloadSection platform={platform} release={release} className={className} />;
+      return <WindowsDownloadSection platform={platform} release={release} launcherRelease={launcherRelease} className={className} />;
     default:
       // Fallback for unknown platforms
       return (

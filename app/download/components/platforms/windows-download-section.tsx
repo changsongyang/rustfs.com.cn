@@ -1,78 +1,156 @@
 'use client'
 
-import { getDownloadUrlForPlatform, type GitHubRelease } from '@/lib/github';
+import { formatVersion, type GitHubRelease } from '@/lib/github';
 import { cn } from "@/lib/utils";
-import { DownloadIcon } from "lucide-react";
-import CodeBlock from "../code-block";
-import Note from "../common/note";
+import { DownloadIcon, ExternalLinkIcon } from "lucide-react";
 import PlatformHeader from "../common/platform-header";
 import { type PlatformInfoData } from "./platform-info";
 
 interface WindowsDownloadSectionProps {
   platform: PlatformInfoData;
   release: GitHubRelease | null;
+  launcherRelease: GitHubRelease | null;
   className?: string;
 }
 
-export default function WindowsDownloadSection({ platform, release, className }: WindowsDownloadSectionProps) {
-  // Get download URLs from release assets or use fallback
-  const x86_64Url = release
-    ? getDownloadUrlForPlatform(release, 'windows', 'x86_64')
-    : null;
-
-  const fallbackX86_64Url = 'https://github.com/rustfs/rustfs/releases/latest';
-
-  const finalX86_64Url = x86_64Url || fallbackX86_64Url;
-
-  // Extract filename from URL for code block
-  const getFilenameFromUrl = (url: string) => {
-    if (url.includes('github.com')) {
-      return 'rustfs-windows-x86_64.zip';
-    }
-    const match = url.match(/([^\/]+\.zip)/);
-    return match ? match[1] : 'rustfs-windows-x86_64.zip';
-  };
+export default function WindowsDownloadSection({ platform, launcherRelease, className }: WindowsDownloadSectionProps) {
+  const releaseUrl = launcherRelease?.html_url || 'https://github.com/rustfs/launcher/releases/latest';
+  const version = launcherRelease ? formatVersion(launcherRelease.tag_name) : 'latest';
+  const versionTag = launcherRelease?.tag_name || 'latest';
+  const versionWithoutV = versionTag.startsWith('v') ? versionTag.slice(1) : versionTag;
+  const versionWithV = versionTag.startsWith('v') ? versionTag : `v${versionTag}`;
+  const installerFilename = `rustfs-launcher-windows-x86_64-v${versionWithoutV}-setup.exe`;
+  const directDownloadUrl = launcherRelease
+    ? `https://dl.rustfs.com/artifacts/rustfs-launcher/release/rustfs-launcher-windows-x86_64-${versionWithV}-setup.exe`
+    : 'https://dl.rustfs.com/artifacts/rustfs-launcher/release/rustfs-launcher-windows-x86_64-latest-setup.exe';
 
   return (
     <div className={cn("space-y-8", className)}>
       {/* Platform Header */}
       <PlatformHeader platform={platform} />
 
-      {/* Binary Downloads */}
+      {/* Installer Download */}
       <div className="space-y-6">
-        <h3 className="text-lg font-semibold text-foreground">{'二进制下载'}</h3>
+        <h3 className="text-lg font-semibold text-foreground">{'从 GitHub 下载'}</h3>
 
-        {/* x86_64 Variant */}
         <div className="space-y-4">
-          <div className="flex items-center justify-between">
-            <div>
-              <h4 className="font-medium text-foreground">x86_64</h4>
-              <p className="text-sm text-muted-foreground">
-                {'架构'}: x86_64
-              </p>
+          <div className="p-6 bg-card rounded-lg border border-border">
+            <div className="space-y-4">
+              <div>
+                <h4 className="font-medium text-foreground mb-2">{'最新版本'}</h4>
+                <p className="text-sm text-muted-foreground mb-4">
+                  {launcherRelease ? `当前最新版本：${version}` : '正在获取最新版本信息...'}
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                <div>
+                  <p className="text-sm font-medium text-foreground mb-2">{'下载步骤：'}</p>
+                  <ol className="list-decimal list-inside space-y-2 text-sm text-muted-foreground">
+                    <li>
+                      {'访问 '}
+                      <a
+                        href={releaseUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center space-x-1 text-primary hover:underline"
+                      >
+                        <span>{'GitHub Release 页面'}</span>
+                        <ExternalLinkIcon className="w-3 h-3" />
+                      </a>
+                    </li>
+                    <li>
+                      {'在 Assets 部分找到并下载 '}
+                      <code className="px-1.5 py-0.5 bg-muted rounded text-xs font-mono text-foreground">
+                        {installerFilename}
+                      </code>
+                    </li>
+                    <li>{'下载完成后，双击运行安装程序即可完成安装'}</li>
+                  </ol>
+                </div>
+
+                <div className="pt-2">
+                  <a
+                    href={releaseUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center space-x-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
+                  >
+                    <span>{'前往 Release 页面'}</span>
+                    <ExternalLinkIcon className="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
             </div>
-            <a
-              href={finalX86_64Url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center space-x-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors">
-              <DownloadIcon className="w-4 h-4" />
-              <span>{'下载'}</span>
-            </a>
           </div>
 
-          <CodeBlock
-            code={[
-              `curl -O ${finalX86_64Url}`,
-              `Expand-Archive -Path ${getFilenameFromUrl(finalX86_64Url)} -DestinationPath .`,
-              ".\\rustfs.exe --version",
-            ]}
-            title={'安装命令'}
-          />
+          <div className="p-4 bg-muted/50 rounded-lg border border-border">
+            <p className="text-sm text-muted-foreground">
+              <strong className="text-foreground">{'提示：'}</strong>
+              {'Launcher 安装程序已包含 RustFS 二进制文件，安装完成后即可使用。'}
+            </p>
+          </div>
+        </div>
+      </div>
 
-          <Note type="tip">
-            {'默认凭据：rustfsadmin / rustfsadmin'}
-          </Note>
+      {/* Direct Download */}
+      <div className="space-y-6">
+        <h3 className="text-lg font-semibold text-foreground">{'从下载站点下载'}</h3>
+
+        <div className="space-y-4">
+          <div className="p-6 bg-card rounded-lg border border-border">
+            <div className="space-y-4">
+              <div>
+                <h4 className="font-medium text-foreground mb-2">{'最新版本'}</h4>
+                <p className="text-sm text-muted-foreground mb-4">
+                  {launcherRelease ? `当前最新版本：${version}` : '正在获取最新版本信息...'}
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                <div>
+                  <p className="text-sm font-medium text-foreground mb-2">{'下载步骤：'}</p>
+                  <ol className="list-decimal list-inside space-y-2 text-sm text-muted-foreground">
+                    <li>{'点击下方下载按钮或链接下载安装程序'}</li>
+                    <li>{'下载完成后，双击运行安装程序即可完成安装'}</li>
+                  </ol>
+                </div>
+
+                <div className="pt-2">
+                  <a
+                    href={directDownloadUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center space-x-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
+                  >
+                    <DownloadIcon className="w-4 h-4" />
+                    <span>{'下载 Windows x86_64 安装程序'}</span>
+                  </a>
+                </div>
+
+                <div className="pt-2">
+                  <p className="text-xs text-muted-foreground">
+                    {'下载链接：'}
+                    <a
+                      href={directDownloadUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="ml-1 text-primary hover:underline break-all"
+                    >
+                      {directDownloadUrl}
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="p-4 bg-muted/50 rounded-lg border border-border">
+            <p className="text-sm text-muted-foreground">
+              <strong className="text-foreground">{'提示：'}</strong>
+              {'Launcher 安装程序已包含 RustFS 二进制文件，安装完成后即可使用。'}
+            </p>
+          </div>
         </div>
       </div>
     </div>
