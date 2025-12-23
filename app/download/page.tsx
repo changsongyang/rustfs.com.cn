@@ -1,5 +1,7 @@
+import { getLatestVersion } from '@/lib/github';
 import DownloadPageClient from './components/download-page-client';
 
-export default function DownloadPage() {
-  return <DownloadPageClient />;
+export default async function DownloadPage() {
+  const release = await getLatestVersion();
+  return <DownloadPageClient release={release} />;
 }

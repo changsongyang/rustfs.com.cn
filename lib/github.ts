@@ -83,6 +83,14 @@ export async function getLatestRelease(): Promise<GitHubRelease | null> {
 }
 
 /**
+ * Get the latest version at build time (alias for getLatestRelease)
+ * @returns Promise<GitHubRelease | null>
+ */
+export async function getLatestVersion(): Promise<GitHubRelease | null> {
+  return getLatestRelease()
+}
+
+/**
  * Get GitHub repository metrics (stars, forks, commits) at build time
  * @returns Promise<GitHubMetrics>
  */
@@ -184,11 +192,13 @@ export function formatReleaseDate(dateString: string, locale: string = 'zh-CN'):
  * Get download link for a version
  * @param release GitHub release information
  * @param platform Platform identifier
+ * @param arch Architecture identifier (optional)
  * @returns Download link or null
  */
 export function getDownloadUrlForPlatform(
   release: GitHubRelease,
-  platform: string
+  platform: string,
+  arch?: string
 ): string | null {
   if (!release.assets || release.assets.length === 0) {
     return null;
@@ -198,17 +208,28 @@ export function getDownloadUrlForPlatform(
   const platformPatterns: Record<string, RegExp> = {
     windows: /windows/i,
     linux: /linux/i,
-    macos: /darwin/i,
+    macos: /macos|darwin/i,
     docker: /docker/i
   };
 
-  const patterns = platformPatterns[platform];
-  if (!patterns) {
+  const platformPattern = platformPatterns[platform];
+  if (!platformPattern) {
     return null;
   }
 
+  // Match architecture pattern if provided
+  const archPatterns: Record<string, RegExp> = {
+    x86_64: /x86[_-]?64|amd64/i,
+    aarch64: /aarch64|arm64/i,
+  };
+
+  const archPattern = arch ? archPatterns[arch] : null;
+
   for (const asset of release.assets) {
-    if (patterns.test(asset.name)) {
+    const matchesPlatform = platformPattern.test(asset.name);
+    const matchesArch = archPattern ? archPattern.test(asset.name) : true;
+
+    if (matchesPlatform && matchesArch) {
       return asset.browser_download_url;
     }
   }

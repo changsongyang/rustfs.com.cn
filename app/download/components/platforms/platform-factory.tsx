@@ -1,5 +1,6 @@
 'use client'
 
+import { type GitHubRelease } from '@/lib/github';
 import DockerDownloadSection from "./docker-download-section";
 import LinuxDownloadSection from "./linux-download-section";
 import MacOSDownloadSection from "./macos-download-section";
@@ -8,20 +9,21 @@ import WindowsDownloadSection from "./windows-download-section";
 
 interface PlatformFactoryProps {
   platform: PlatformInfoData;
+  release: GitHubRelease | null;
   className?: string;
 }
 
-export default function PlatformFactory({ platform, className }: PlatformFactoryProps) {
-  
+export default function PlatformFactory({ platform, release, className }: PlatformFactoryProps) {
+
   switch (platform.id) {
     case 'linux':
-      return <LinuxDownloadSection platform={platform} className={className} />;
+      return <LinuxDownloadSection platform={platform} release={release} className={className} />;
     case 'docker':
-      return <DockerDownloadSection platform={platform} className={className} />;
+      return <DockerDownloadSection platform={platform} release={release} className={className} />;
     case 'macos':
-      return <MacOSDownloadSection platform={platform} className={className} />;
+      return <MacOSDownloadSection platform={platform} release={release} className={className} />;
     case 'windows':
-      return <WindowsDownloadSection platform={platform} className={className} />;
+      return <WindowsDownloadSection platform={platform} release={release} className={className} />;
     default:
       // Fallback for unknown platforms
       return (

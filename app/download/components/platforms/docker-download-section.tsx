@@ -1,5 +1,6 @@
 'use client'
 
+import { type GitHubRelease } from '@/lib/github';
 import { cn } from "@/lib/utils";
 import { DownloadIcon, ExternalLinkIcon } from "lucide-react";
 import Link from "next/link";
@@ -10,11 +11,13 @@ import { type PlatformInfoData } from "./platform-info";
 
 interface DockerDownloadSectionProps {
   platform: PlatformInfoData;
+  release: GitHubRelease | null;
   className?: string;
 }
 
-export default function DockerDownloadSection({ platform, className }: DockerDownloadSectionProps) {
-  
+export default function DockerDownloadSection({ platform, release, className }: DockerDownloadSectionProps) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const _ = release; // Docker uses Docker Hub tags, not GitHub releases
   return (
     <div className={cn("space-y-8", className)}>
       {/* Platform Header */}
