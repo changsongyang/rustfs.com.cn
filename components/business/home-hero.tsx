@@ -4,12 +4,12 @@ import { Globe } from "@/components/ui/globe";
 import type { GitHubMetrics } from "@/lib/github";
 import { useTheme } from "next-themes";
 import { useEffect, useMemo, useState } from "react";
-import DemoLink from "./buttons/demo-link";
+import ContactUsButton from "./buttons/contact-us";
 import DownloadLink from "./buttons/download-link";
 import StatsStrip from "./stats-strip";
 //import GetStartedButton from "./buttons/get-started";
 
-// 导入所有软件 SVG 图标
+// 导入所有软件SVG图标
 
 interface HomeHeroProps {
   dockerPulls: number;
@@ -76,28 +76,27 @@ export default function HomeHero({ dockerPulls, metrics }: HomeHeroProps) {
       <div className="relative flex items-center gap-12">
         <div className="space-y-6 text-center lg:text-left relative z-20 lg:w-3/5">
           <h1 className="font-display text-3xl font-extrabold tracking-tight text-primary sm:text-4xl md:text-5xl xl:text-6xl leading-tight">
-            世界上增长最快的<br />分布式对象存储
+            The World’s Fastest-Growing Open-Source Distributed Object Storage
           </h1>
-          <p className="mx-auto lg:mx-0 max-w-2xl text-lg tracking-tight text-secondary-foreground">
-            根据 GitHub 的数据，RustFS 是增长最快的分布式对象存储。
-            RustFS 用热门安全的 Rust 语言开发，兼容 S3 协议。适用于 AI/ML 及海量数据存储、大数据、互联网、工业和保密存储等全部场景，支持国产保密设备和系统。
-          </p>
+          {/* <p className="mx-auto lg:mx-0 max-w-2xl text-lg tracking-tight text-secondary-foreground">
+            RustFS is developed with the popular and secure Rust language, compatible with S3 protocol. Suitable for AI/ML and massive data storage, big data, internet, industrial and confidential storage scenarios. Significantly reduces TCO. Follows Apache 2 license, Compatible with diverse hardware ecosystems.
+          </p> */}
           <div className="text-lg font-semibold text-primary/90 flex items-center justify-center lg:justify-start gap-2">
-            <span>适用于</span>
+            <span>Built for</span>
             <WordRotate
               words={[
-                'AI/ML 管道',
-                '超大规模数据湖',
-                '多云存储',
-                'S3 兼容生态',
-                '企业级可靠性'
+                'AI/ML Pipelines',
+                'Hyper-Scale Data Lakes',
+                'Multi-Cloud Storage',
+                'S3-Compatible Ecosystems',
+                'Enterprise Reliability'
               ]}
               className="inline-flex"
             />
           </div>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start">
             <DownloadLink />
-            <DemoLink className="hidden md:inline-flex" />
+            <ContactUsButton className="md:inline-flex bg-secondary text-secondary-foreground hover:bg-secondary/90 hover:text-secondary-foreground/90 active:bg-secondary/80 active:text-secondary-foreground/80 focus-visible:outline-secondary transition-colors" />
           </div>
         </div>
 

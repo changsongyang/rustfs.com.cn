@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import ErasureCodeCalculator from "@/components/business/erasure-code-calculator";
 
 export const metadata: Metadata = {
-  title: "RustFS 纠删码计算器",
-  description: "计算纠删码的原始容量、可用容量与故障容忍度。",
+  title: "RustFS Erasure Code Calculator",
+  description: "Calculate raw capacity, usable capacity, and failure tolerance for erasure coding.",
 };
 
 export default function ErasureCodeCalculatorPage() {

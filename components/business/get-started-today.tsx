@@ -1,7 +1,7 @@
 'use client'
 
 /* eslint-disable @next/next/no-img-element */
-import FreeChatButton from "./buttons/free-chat";
+import ContactUsButton from "./buttons/contact-us";
 
 const AVATAR_URLS = [
   "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
@@ -10,16 +10,15 @@ const AVATAR_URLS = [
   "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80"
 ];
 
-export default function GetStartedToday() {
-  return (
+export default function GetStartedToday() {return (
     <section
-      className="relative overflow-hidden py-32 bg-accent text-accent-foreground"
+      className="relative overflow-hidden py-32 bg-muted/40 text-foreground"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
         <div className="mx-auto text-center flex flex-col gap-8">
           <h2 className="font-display text-2xl tracking-wide sm:text-4xl font-semibold leading-tight">
-            快速体验 RustFS 的 <br />
-            高安全性，高并发和极致性能
+            {'Experience RustFS'} <br />
+            {'High security, high concurrency and ultimate performance'}
           </h2>
 
           {/* Avatar Group */}
@@ -30,13 +29,13 @@ export default function GetStartedToday() {
                 {AVATAR_URLS.map((url, index) => (
                   <img
                     key={index}
-                    className="inline-block size-8 rounded-full ring-2 ring-white dark:ring-neutral-900"
+                    className="inline-block size-8 rounded-full ring-2 ring-background"
                     src={url}
                     alt={`Avatar ${index + 1}`}
                   />
                 ))}
-                <span className="inline-flex size-8 items-center justify-center rounded-full bg-gray-800 ring-2 ring-white dark:bg-neutral-900 dark:ring-neutral-900">
-                  <span className="text-xs font-medium uppercase leading-none text-white">
+                <span className="inline-flex size-8 items-center justify-center rounded-full bg-primary ring-2 ring-background">
+                  <span className="text-xs font-medium uppercase leading-none text-primary-foreground">
                     100+
                   </span>
                 </span>
@@ -45,13 +44,13 @@ export default function GetStartedToday() {
             </div>
             <div className="pt-5 sm:ps-5 sm:pt-0 lg:border-l">
               <div className="text-sm">
-                超过 100+ 企业用户已经开始使用 RustFS
+                {'Over 100+ enterprise users have started using RustFS'}
               </div>
             </div>
           </div>
           {/* End Avatar Group */}
           <div>
-            <FreeChatButton />
+            <ContactUsButton />
           </div>
         </div>
       </div>
